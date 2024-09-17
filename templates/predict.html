@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>predict</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body style="background-image: url(../static/images/pred2.png)" >
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Churn</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/about">About</a>
+              </li>
+              <li class="nav-item"></li>
+                <a class="nav-link active" aria-current="page" href="/predict">predict</a>
+              </li>
+              <li class="nav-item"></li>
+                <a class="nav-link active" aria-current="page" href="/contact">contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      
+ <div style="width: 600px; height: 600px;margin: 20px 20px 20px 350px; 
+ border: 2px;
+  border-radius: 10px;padding: 40px 40px 40px 40px;color: brown;">
+      <form class="row g-3 needs-validation" method="post" action="/result" >
+        <h3 style="margin: 2px 2px 2px 2px"><center><b> customer churn prediction</b></center></h3>
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">Tenure</label>
+          <input type="number" class="form-control" id="validationCustom01" placeholder="enter the tenure(eg:12)" required name="utenure">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="validationCustom02" class="form-label">monthly_charges</label>
+          <input type="number" class="form-control" id="validationCustom02" placeholder="enter the monthly cahrges(eg:900)" required name="umonth">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="validationCustom02" class="form-label">total_charges</label>
+          <input type="number" class="form-control" id="validationCustom02" placeholder="enter the monthly cahrges(eg:900)" required name="utotal">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        
+        
+      
+        <div class="col-md-6">
+          <label for="validationCustom04" class="form-label">gender</label>
+          <select class="form-select" id="validationCustom04" required name="ugender">
+            <option selected disabled value="">Choose option</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="validationCustom04" class="form-label">phone_service</label>
+          <select class="form-select" id="validationCustom04" required name="uphnservice">
+            <option selected disabled value="">Choose option</option>
+            <option value="1">yes</option>
+            <option value="0">no</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <label for="validationCustom04" class="form-label">internet_service</label>
+          <select class="form-select" id="validationCustom04" required name="uintservice">
+            <option selected disabled value="">Choose option</option>
+            <option value="1">fiber topic</option>
+            <option value="0">dsl</option>
+            <option value="0">no internet connection</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustom04" class="form-label">device_protection</label>
+          <select class="form-select" id="validationCustom04" required name="udeviceprotect">
+            <option selected disabled value="">Choose option</option>
+            <option value="1">yes</option>
+            <option value="0">no</option>
+            
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="validationCustom04" class="form-label">contract</label>
+          <select class="form-select" id="validationCustom04" required name="ucontract">
+            <option selected disabled value="">Choose option</option>
+            <option value="1">one year</option>
+            <option value="0">monthly </option>
+            <option value="0">2 year </option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="validationCustom04" class="form-label">paperless_bill</label>
+          <select class="form-select" id="validationCustom04" required name="upaperbill">
+            <option selected disabled value="">Choose option</option>
+            <option value="1">yes</option>
+            <option value="0">no</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+            
+            <div class="col-md-6">
+          <label for="validationCustom04" class="form-label">payment</label>
+          <select class="form-select" id="validationCustom04" required name="upayment">
+            <option selected disabled value="">Choose option</option>
+            <option value="1">yes</option>
+            <option value="0">no</option>
+            
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+          
+        
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit" name="usubmit">Submit form</button>
+        </div>
+      </form>
+      </div>
+
+
+
+
+
+<!--sticky bottom for footer-->
+      <nav class="navbar sticky-bottom bg-body-tertiary">
+        <div class="container-fluid">
+          <p style="margin-left: 400px;">all right reserved</p>
+        </div>
+      </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
